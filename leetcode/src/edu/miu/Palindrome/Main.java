@@ -19,7 +19,9 @@ public class Main {
 
         }
         s=sb.toString().toLowerCase();
-        System.out.println(s);
+        if(s.length()<2)
+            return true;
+        System.out.println(s.length());
 
         int mid=s.length()/2;
         int begin=0;
@@ -37,14 +39,14 @@ public class Main {
 
 
 
-        while(begin>0 && end<s.length()&&s.charAt(begin)==s.charAt(end) ){
+        while(begin>=0 && end<s.length()&&s.charAt(begin)==s.charAt(end) ){
 
             begin--;
             end++;
         }
         System.out.println(begin);
         System.out.println(end);
-        if(begin==0&&end==s.length()-1)
+        if(begin==-1&&end==s.length())
             return true;
 
 
