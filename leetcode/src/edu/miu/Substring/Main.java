@@ -18,6 +18,14 @@ public class Main {
         int start=0;
         for (int i=0;i<s.length();i++){
 
+       if(map.containsKey(s.charAt(i))){
+
+           start=Math.max(start,map.get(s.charAt(i))+1);
+
+
+       }
+       System.out.println("loop " + i +" start "  +start);
+
 
 
             map.put(s.charAt(i),i);
