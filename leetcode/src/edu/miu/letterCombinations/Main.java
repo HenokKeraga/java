@@ -36,7 +36,7 @@ public class Main {
     private static List<String> makeCombination(String digits,Map<Character, String[]> hm ,int i,String sb,List<String> combination) {
 
       if(i>=digits.length()){
-          combination.add(sb.toString());
+          combination.add(sb);
           System.out.println(combination);
           return combination;
       }
