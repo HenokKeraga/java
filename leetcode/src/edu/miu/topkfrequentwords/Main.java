@@ -13,18 +13,16 @@ public class Main {
     }
 
     public static List<String> topKFrequent(String[] words, int k) {
-        Map<String, Integer> freq = new HashMap();
+        Map<String, Integer> map = new HashMap();
 
         for (String word : words) {
-            freq.put(word, freq.getOrDefault(word, 0) + 1);
+            map.put(word, map.getOrDefault(word, 0) + 1);
         }
 
         List<String>[] lists = new List[words.length + 1];
 
-        int [] a= new int[10];
 
-
-        for (Map.Entry<String, Integer> e : freq.entrySet()) {
+        for (Map.Entry<String, Integer> e :map.entrySet()) {
 
             int frequency = e.getValue();
 
@@ -33,7 +31,9 @@ public class Main {
             lists[frequency].add(e.getKey());
         }
 
-        List<String> res = new ArrayList<>();
+
+
+        List<String> result = new ArrayList<>();
         for (int i = lists.length - 1; i >= 0; i--) {
             if(lists[i]!=null){
                 List<String> element=lists[i];
@@ -41,8 +41,8 @@ public class Main {
                 Collections.sort(element);
 
                 for(int g=0;g<element.size();g++){
-                    if(res.size()<k){
-                        res.add(element.get(g));
+                    if(result.size()<k){
+                        result.add(element.get(g));
                     }
 
                 }
@@ -50,6 +50,6 @@ public class Main {
             }
         }
 
-        return res;
+        return result;
     }
 }
