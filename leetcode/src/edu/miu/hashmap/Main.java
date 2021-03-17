@@ -1,9 +1,7 @@
 package edu.miu.hashmap;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+
+import java.util.*;
 
 public class Main {
 
@@ -22,9 +20,25 @@ public class Main {
         List<?> list= new ArrayList<>();
         list.add(null);
         list.add(null);
-
-
         System.out.println(list);
+        System.out.println(Collections.EMPTY_LIST);
+        /*
+     *
+     * @. sort characters of a string using Java 8
+     * */
+        String s="dshfldskhfkjda";
+
+      StringBuilder sb=  s.chars().sorted().collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append);
+
+        System.out.println(sb.toString());
+
+
+
+  /*
+  *
+  *
+  *
+  * */
 
 
 

@@ -1,4 +1,4 @@
-package numberOfIslands;
+package edu.miu.numberOfIslands;
 
 public class Main {
     public static void main(String[] args) {
