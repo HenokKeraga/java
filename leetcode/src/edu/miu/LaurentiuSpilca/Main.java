@@ -1,6 +1,7 @@
 package edu.miu.LaurentiuSpilca;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -31,9 +32,13 @@ public class Main {
                 )
         );
 
+        Map<String,Long> map2=list.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+
+        System.out.println(map2);
 
 
-       // System.out.println(map);
+
+        // System.out.println(map);
        // System.out.println(map1);
 
 
