@@ -1,7 +1,7 @@
-package edu.miu.parallel.lesson9;
+package edu.miu.parallel.ExecutorService;
 import java.util.concurrent.*;
 
-public class Main {
+public class Main1 {
 
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
