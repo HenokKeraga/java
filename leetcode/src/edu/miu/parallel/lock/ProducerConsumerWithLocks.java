@@ -26,13 +26,15 @@ public class ProducerConsumerWithLocks {
                         lock.lock();
                         while (isEmpty(buffer)) {
                             // wait
-                            if (!isEmpty.await(10, TimeUnit.MILLISECONDS)) {
-                                throw new TimeoutException("Consumer time out");
-                            }
+//                            if (!isEmpty.await(10, TimeUnit.MILLISECONDS)) {
+//                                throw new TimeoutException("Consumer time out");
+//                            }
+                            isEmpty.await();//Causes the current thread to wait until it is signalled or interrupted.
                         }
+
                         buffer.remove(buffer.size() - 1);
                         // signal
-                        isFull.signalAll();
+                        isFull.signalAll();//Wakes up all waiting threads.
                     } finally {
                         lock.unlock();
                     }
@@ -48,12 +50,18 @@ public class ProducerConsumerWithLocks {
                 while (count++ < 50) {
                     try {
                         lock.lock();
-                        int i = 10/0;
+                      // int i = 10/0;
                         while (isFull(buffer)) {
                             // wait
+                            System.out.println("await");
                             isFull.await();
+
                         }
                         buffer.add(1);
+
+                        System.out.print(buffer);
+                        System.out.println(count);
+
                         // signal
                         isEmpty.signalAll();
                     } finally {
@@ -105,6 +113,6 @@ public class ProducerConsumerWithLocks {
     }
 
     public static boolean isFull(List<Integer> buffer) {
-        return buffer.size() == 10;
+        return buffer.size() ==10 ;
     }
 }

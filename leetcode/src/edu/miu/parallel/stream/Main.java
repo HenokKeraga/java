@@ -30,6 +30,7 @@ public class Main {
         System.out.println(res.findAny().get());
         System.out.println(res.findAny());
 
+
     }
 
     private static double f(double v) {
